@@ -1,0 +1,115 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{blindtext}
+
+\usepackage{color}
+\usepackage{amsmath,geometry,makeidx}
+\topmargin -1.2in
+\textheight 11in
+\oddsidemargin -0.45in
+\evensidemargin 0in
+\textwidth 7in
+\footskip 0.5in
+\flushbottom
+
+\renewcommand\maketitle{%
+	\setlength\parindent{0pt}%
+	\begin{minipage}{\textwidth}
+		\begin{minipage}{.15\textwidth}
+			\includegraphics[width=1.5\linewidth]{OM-logo}
+		\end{minipage}%
+		\begin{minipage}{.7\textwidth}
+			\centering
+			Installation Sheet for OpenModelica\par
+			OpenModelica Team\par
+			FOSSEE, IIT Bombay
+		\end{minipage}%
+		\begin{minipage}{.15\textwidth}
+			\raggedright
+			\includegraphics[width=\linewidth]{FOSSEE-logo}
+		\end{minipage}%
+	\end{minipage}\vskip 2.5ex
+	\par
+	\hrule
+}
+
+\begin{document}
+
+\maketitle
+
+\section{The procedure to install OpenModelica on Windows OS}
+
+\begin{enumerate}
+\item To follow the installation procedure, you need to be connected to the internet.
+\item Open your default web browser.
+\item In the address bar, type the url: \url{https://www.openmodelica.org} and press Enter.
+\item Go to ``DOWNLOAD" tab.
+\item Select ``Windows".
+\item From ``Offcial Release", Click on 1.18.0 (32bit/64bit)
+\item From Parent Directory
+\begin{enumerate}
+	\item If you are using a 64-bit system:
+	\begin{enumerate}
+	\item click on 64bit.
+	\item Click on OpenModelica-v1.18.0-64bit.exe.
+	\item Save OpenModelica-v1.18.0-64bit.exe file.
+	\end{enumerate}
+	\item If you are using a 32-bit system:
+	\begin{enumerate}
+	\item click on 32bit.
+	\item Click on OpenModelica-v1.18.0-32bit.exe.
+	\item Save OpenModelica-v1.18.0-32bit.exe file.
+	\end{enumerate}
+\end{enumerate}
+\item Right Click on the downloaded file and select Run as Administrator.
+\item In Installation Pop-up window, click on Next.
+\item Choose the Destination Folder and click on Next.
+\item Click on Install.
+\item Click on Next.
+\item Click on Finish.
+\item OpenModelica is successfully installed.
+\end{enumerate}
+
+\section{The procedure to install OpenModelica on Linux OS}
+
+\begin{enumerate}
+	
+\item To follow the installation procedure, you need to be connected to the internet.
+\item Open terminal and type: sudo apt-get update
+\item Type your system password.
+\item Type: echo ``deb http://build.openmodelica.org/apt `lsb\_release -cs' release"
+\item In the terminal, type: sudo gedit /etc/apt/sources.list
+\item A new gedit file named ``sourses.list" appears.
+\item At the end of the page, type: deb http://build.openmodelica.org/apt focal release
+\item Press CTRL + S and close the file
+\item Type: wget -q http://build.openmodelica.org/apt/openmodelica.asc -O- $|$ sudo apt-key add -
+\item It will show ``OK".
+\item Open a new terminal window
+\item Type: sudo apt update
+\item Type: sudo apt install openmodelica
+\item OpenModelica is successfully installed.
+%\item Type: for PKG in `apt-cache search "omlib-.*" $|$ cut -d" " -f1`; do sudo apt-get install -y "\$PKG"; done (It installs optional Modelica libraries)	
+\end{enumerate}
+
+\section{Checking the installation}
+
+\begin{enumerate}
+	\item To check the software installation, please follow these steps:
+	\item For Windows: Go to ``OpenModelica Connection Editor", right click on it and select ``Run as administrator"
+	\newline For Linux: Open a command terminal by pressing Ctrl+Alt+T and type ``OMEdit".
+	\item When opening OMEdit, it will ask to choose one of the versions of MSL (Modelica Standard Library). Select MSL v3.2.3 and proceed.
+	\item Expand the ``Modelica" library from Libraries Browser.
+	\item Click on the arrow head to the left of ``Thermal" library.
+	\item Under ``Thermal", expand ``HeatTransfer" library.
+	\item Now expand the ``Examples" library.
+	\item Double click on ``TwoMasses" class.
+	\item Now click on ``Simulate" button on the toolbar.
+	\item In the new window, go to the ``Variables Browser" at the right.
+	\item Expand the ``conduction" variable.
+	\item Click on the check box against dT variable.
+	\item We will get a plot between time and dT.
+\end{enumerate}
+
+\end{document}
